@@ -1,25 +1,30 @@
+<% if user_signed_in? %>
+  <h1>Friends List</h1>
 
-<h1>Friends List</h1>
-
-<table class="table table-success table-striped table-hover">
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Twitter</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @friends.each do |friend|%>
-      <% if friend.user == current_user%>
-        <%= render friend %>
+  <table class="table table-success table-striped table-hover">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Twitter</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @friends.each do |friend|%>
+        <% if friend.user == current_user%>
+          <%= render friend %>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<%# <button type="button" class="btn btn-secondary">Secondary</button> %>
+  <%# <button type="button" class="btn btn-secondary">Secondary</button> %>
 
-<%= link_to "New friend", new_friend_path, class:"btn btn-secondary" %>
+  <%= link_to "New friend", new_friend_path, class:"btn btn-secondary" %>
+  <br/>
+  <br/>
+<% end %>
+<h1>Hello World</h1>
+<p class="test">first rails page</p>
