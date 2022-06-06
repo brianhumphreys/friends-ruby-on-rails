@@ -1,0 +1,24 @@
+
+<h1>Friends List</h1>
+
+<table class="table table-success table-striped table-hover">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Twitter</th>
+      <th colspan="8"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend|%>
+      <%= render friend %>
+    <% end %>
+  </tbody>
+</table>
+
+<%# <button type="button" class="btn btn-secondary">Secondary</button> %>
+
+<%= link_to "New friend", new_friend_path, class:"btn btn-secondary" %>
