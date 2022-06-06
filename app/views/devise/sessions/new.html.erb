@@ -1,15 +1,17 @@
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, id: "flash_#{name}" %>
-<% end %>
 
-<div class="card sign-up-card" style="width: 18rem;">
+
+<div class="card sign-up-card" style="width: 19rem;">
   <%# <img src="..." class="card-img-top" alt="..."> %>
   <div class="card-header test">
     Log in
   </div>
   <div class="card-body">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <% flash.each do |name, msg| %>
+        <%= render 'layouts/resource_errors', message: msg%>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
       <div class="field form-group">
         <%= f.label :email %><br />
         <%= f.email_field :email, class:"form-control", placeholder:"Email", autofocus: true, autocomplete: "email" %>

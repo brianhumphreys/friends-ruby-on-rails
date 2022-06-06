@@ -5,6 +5,9 @@
 <br>
 
 <div>
-  <%= link_to "Show this friend", @, class:"btn btn-secondary" %> |
+  <%= link_to "Show this friend", @friend, class:"btn btn-secondary" %> 
   <%= link_to "Back to friends", friends_path, class:"btn btn-dark" %>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <%= button_to "Destroy", @friend, method: :delete, class: "btn btn-danger" %>
+  </div>
 </div>

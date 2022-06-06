@@ -5,16 +5,17 @@
   <thead>
     <tr>
       <th>First Name</th>
-      <th>Last Name</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Twitter</th>
-      <th colspan="8"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
     <% @friends.each do |friend|%>
-      <%= render friend %>
+      <% if friend.user == current_user%>
+        <%= render friend %>
+      <% end %>
     <% end %>
   </tbody>
 </table>

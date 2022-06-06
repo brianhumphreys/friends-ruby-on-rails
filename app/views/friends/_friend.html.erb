@@ -1,12 +1,14 @@
 <tr id="<%= dom_id friend %>">
-  <th scope="row"><%= friend.first_name %></th>
-  <td><%= friend.last_name %></td>
+  <th scope="row">
+    <%= link_to friend.first_name + ' ' + friend.last_name, friend %>
+  </th>
   <td><%= friend.email %></td>
   <td><%= friend.phone %></td>
   <td><%= friend.twitter %></td>
   <td>
-    <p>
-      <%= link_to "Show", friend %>
-    </p>
+    <%= link_to "Edit", edit_friend_path(friend), class:"btn btn-outline-secondary" %>
+  </td>
+  <td>
+    <%= button_to "Destroy", friend, method: :delete, class: "btn btn-outline-danger" %>
   </td>
 </tr>

@@ -30,6 +30,11 @@
   <div class="mb-3">
     <%= form.text_field :twitter, class:"form-control", placeholder:"Twitter" %>
   </div>
+
+  <div class="mb-3">
+    <%= form.number_field :user_id, id: :friend_user_id, type: :hidden, class:"form-control", value: current_user.id %>
+  </div>
+  <%=  %>
   <br/>
   <div class="mb-3">
     <%= form.submit class:"btn btn-primary" %>
