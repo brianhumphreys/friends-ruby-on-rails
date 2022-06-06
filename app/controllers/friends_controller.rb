@@ -5,10 +5,41 @@ class FriendsController < ApplicationController
 
   # GET /friends or /friends.json
   def index
-    @friends = Friend.order(user_id: :desc)
-    puts @friends
+    users = User.all
+    @users = {}
+    users.each do |user, hash|
+      @users[user.id] = user.email.split('@')[0].capitalize.to_s
+    end
+
+    @friends = Friend.order(user_id: :desc).group_by { |f| f.user_id }
+
+    # @friends.each do |user_id, users_friends| 
+    #   puts "============ user #{user_id}"
+    #   users_friends.each do |friend| 
+    #       puts "friend #{friend.id}"
+    #   end
+    # end
   end
 
+#   friend Andrew
+# friend Barron
+# friend Brett
+# friend Jay
+# friend Ryattt
+# friend Humphreys
+# friend Nohemi
+# friend Gonzalez
+# friend Eric
+# friend Kanski
+# friend Carleigh
+# friend Crockette
+# friend Jonathan
+# friend Womack
+# friend Cassie
+# friend Jay
+# friend Demi
+# friend Barron
+# friend 5
   # GET /friends/1 or /friends/1.json
   def show
   end
