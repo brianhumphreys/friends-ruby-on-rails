@@ -1,0 +1,59 @@
+<div class="card" style="padding: 0">
+    <div class="card-header" style="padding: 0.75rem 1.25rem 0 1.25rem">
+        <div class="row g-3">
+            <div class="col">
+                <h3 class="mb-3"><%= header %></h3>
+            </div>
+            <div class="col text-right">
+                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators<%= user_id %>" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators<%= user_id %>" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body" style="padding: 1.25rem 0.3rem 0.3rem 0.3rem">
+        <div class="col-12">
+            <div id="carouselExampleIndicators<%= user_id %>" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <%#<%= number_in_carousel = window.innerWidth %>
+                    <% friends.each_slice(4).with_index do |friend_sub, i|%>
+                        <div class="carousel-item <%= 'active' if i == 0 %>">
+                            <div class="row">
+                                <% friend_sub.each do |friend| %>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="card">
+                                            <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                                            <div class="card-body">
+                                                <h4 class="card-title">
+                                                    <%= link_to friend.first_name + ' ' + friend.last_name, friend %>
+                                                </h4>
+                                                <p class="card-text">
+                                                    <%= friend.email %>
+                                                </p>
+                                                <p class="card-text">
+                                                    <%= friend.phone %>
+                                                </p>
+                                                <p class="card-text">
+                                                    <%= friend.twitter %>
+                                                </p>
+                                            </div>
+                                            <div class="card-body">
+                                                <%= link_to "Edit", edit_friend_path(friend), class:"btn btn-outline-secondary" %>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <%= button_to "Destroy", friend, method: :delete, class: "btn btn-outline-danger" %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
